@@ -1,0 +1,234 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0052)http://ilab.cs.byu.edu/python/socket/echoclient.html -->
+<html xmlns="http://www.w3.org/1999/xhtml"><meta style="visibility: hidden !important; display: block !important; width: 0px !important; height: 0px !important; border-style: none !important;"><object id="__IDM__" type="application/x-idm-downloader" width="1" height="1" style="visibility: hidden !important; display: block !important; width: 1px !important; height: 1px !important; border-style: none !important; position: absolute !important; top: 0px !important; left: 0px !important;"></object></meta><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+
+<title>Python Network Programming : The Socket Module : A Simple Echo Client</title>
+
+<link rel="stylesheet" type="text/css" href="./Python Network Programming   The Socket Module   A Simple Echo Client_files/class.css" media="screen">
+<link rel="stylesheet" type="text/css" media="print" href="./Python Network Programming   The Socket Module   A Simple Echo Client_files/class.css">
+
+</head>
+  
+<body marginheight="0" marginwidth="0">
+
+
+
+<div id="top">
+<div id="top-col-1">
+<a href="http://www.byu.edu/"><img class="up" src="./Python Network Programming   The Socket Module   A Simple Echo Client_files/byu.gif" alt="BYU"></a><a href="http://www.byu.edu/">BRIGHAM YOUNG UNIVERSITY</a>
+</div>
+<div id="top-col-2">
+<a href="http://www.cs.byu.edu/">Computer Science</a>
+</div>
+</div>
+
+<div id="title">
+<div id="name">
+Python Network Programming
+</div>
+</div>
+
+<div id="middle">
+
+<div id="sidebarwrap">
+
+<div id="sidebar">
+
+<div id="term">
+Daniel Zappala
+</div>
+
+
+
+<div id="boxtitle">Navigation</div>
+<div id="box">
+<ul>
+<li id="inactive">
+<a href="http://ilab.cs.byu.edu/python/">Getting Started</a>
+</li>
+
+<li id="inactive">
+<a href="http://ilab.cs.byu.edu/python/socketmodule.html">The Socket Module</a>
+</li>
+<ul class="submenu">
+<li id="inactive">
+<a href="http://ilab.cs.byu.edu/python/socket/addresses.html">Addresses</a>
+</li>
+
+<li id="inactive">
+<a href="http://ilab.cs.byu.edu/python/socket/sockets.html">Sockets</a>
+</li>
+
+<li id="inactive">
+<a href="http://ilab.cs.byu.edu/python/socket/echoserver.html">Simple Echo Server</a>
+</li>
+
+<li id="active">
+Simple Echo Client
+</li>
+
+<li id="inactive">
+<a href="http://ilab.cs.byu.edu/python/socket/exceptions.html">Catching Exceptions</a>
+</li>
+
+</ul>
+
+<li id="inactive">
+<a href="http://ilab.cs.byu.edu/python/selectmodule.html">The Select Module</a>
+</li>
+<ul class="submenu">
+<li id="hidden">
+<a href="http://ilab.cs.byu.edu/python/select/select.html">Select</a>
+</li>
+
+<li id="hidden">
+<a href="http://ilab.cs.byu.edu/python/select/echoserver.html">Echo Server with Select</a>
+</li>
+
+<li id="hidden">
+<a href="http://ilab.cs.byu.edu/python/select/echoclient.html">A Long-Lived Echo Client</a>
+</li>
+
+</ul>
+
+<li id="inactive">
+<a href="http://ilab.cs.byu.edu/python/threadingmodule.html">The Threading Module</a>
+</li>
+
+<li id="inactive">
+<a href="http://ilab.cs.byu.edu/python/code.html">Code Index</a>
+</li>
+
+</ul>
+</div>
+
+<div id="boxtitle">License</div>
+<div id="box">
+
+        
+        <!-- Creative Commons License -->
+        <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/2.0/"><img alt="Creative Commons License" border="0" src="./Python Network Programming   The Socket Module   A Simple Echo Client_files/somerights20.gif"></a><br>
+        This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/2.0/">Creative Commons License</a>.
+        <!-- /Creative Commons License -->
+
+
+        <!--
+
+        <rdf:RDF xmlns="http://web.resource.org/cc/"
+        xmlns:dc="http://purl.org/dc/elements/1.1/"
+        xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+        <Work rdf:about="">
+        <dc:type rdf:resource="http://purl.org/dc/dcmitype/Text" />
+        <license rdf:resource="http://creativecommons.org/licenses/by-nc-nd/2.0/" />
+        </Work>
+
+        <License rdf:about="http://creativecommons.org/licenses/by-nc-nd/2.0/">
+        <permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+        <permits rdf:resource="http://web.resource.org/cc/Distribution" />
+        <requires rdf:resource="http://web.resource.org/cc/Notice" />
+        <requires rdf:resource="http://web.resource.org/cc/Attribution" />
+        <prohibits rdf:resource="http://web.resource.org/cc/CommercialUse" />
+        </License>
+        
+        </rdf:RDF>
+        
+        -->
+        
+</div>
+
+</div>
+</div>
+
+<div id="contentwrap">
+<div id="content">
+
+
+<h2>The Socket Module</h2>
+<h3>A Simple Echo Client</h3>
+
+<p>Here is an echo client that will talk to our echo server
+
+(<a href="http://ilab.cs.byu.edu/python/code/echoclient-simple.py">echoclient-simple.py</a>):</p>
+
+<p class="example">
+#!/usr/bin/env python
+<br>
+<br>"""
+<br>A simple echo client
+<br>"""
+<br>
+<br>import socket
+<br>
+<br>host = 'localhost'
+<br>port = 50000
+<br>size = 1024
+<br>s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+<br>s.connect((host,port))
+<br>s.send('Hello, world')
+<br>data = s.recv(size)
+<br>s.close()
+<br>print 'Received:', data
+</p>
+
+<p>Let's go through this code a few lines at a time:</p>
+
+<p class="example">
+<br>import socket
+<br>
+<br>host = 'localhost'
+<br>port = 50000
+</p>
+
+<p>As with the server, the client must import the socket module and
+set the host name and port number variables. The client, however,
+must use the name of the server it will contact.  Note that
+these should be passed on the command line; we will discuss argument
+parsing later.</p>
+
+<p class="example">
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+</p>
+
+<p>This creates a socket.  Note that the client uses the same syntax
+as for the server.</p>
+
+<p class="example">
+s.connect((HOST, PORT))
+</p>
+
+<p>The client uses the <i>connect()</i> method to connect to the server.
+This must be issued after the server has called <i>accept()</i>, or
+else the connect will fail.  You should check for exceptions when
+calling this and other socket methods.</p>
+
+<p class="example">
+s.send('Hello, world')
+<br>data = s.recv(size)
+</p>
+
+<p>The <i>send()</i> method transmits data to the server.  As with
+the server, the client should check the return value to determine
+how much data was actually sent.  The client uses the <i>recv()</i>
+method to get data back from the server, specifying a buffer size
+to indicate the maximum amount of data it will handle at a time.
+Again, the data received may be less than this maximum.</p>
+
+<p class="example">
+s.close()
+<br>print 'Received:', data
+</p>
+
+<p>These lines close the socket and print out the data that was received.
+</p>
+
+
+</div>
+</div>
+
+</div>
+
+
+
+</body></html>

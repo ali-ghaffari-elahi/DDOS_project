@@ -1,0 +1,464 @@
+/*
+ * Main style-sheet for web site. Used helpful tips found at:
+ * http://www.alistapart.com/stories/flexiblelayouts/
+ */
+
+/* ======================================================================
+ * Body
+ * ======================================================================
+ * Settings for the page, including padding, background color, and fonts.
+ * background-color: #eeeeee;
+ */
+body {
+	
+	background-color: #ccff99;
+	background-color: #ccccaa;	
+	background-color: #aaccaa;
+	background-color: #99cc66;
+	background-color: #ddddee;
+	background-color: #ffffff;
+	color: black;
+	font: 10pt Verdana, sans-serif;
+}
+
+/* ======================================================================
+ * Links
+ * ======================================================================
+ */
+
+a {		color: #003366; text-decoration: none;
+		border-bottom: 1px dotted; font-weight:bold; font-size: 8pt;} 
+a:link {	color: #003366;	} 
+a:visited { 	color: #003366; } 
+a:active {	color: #99CC66; } 
+a:hover	{	border-bottom: 1px solid;}
+
+/* ======================================================================
+ * Main Structure
+ * ======================================================================
+ * Define two main areas - top, middle.  Middle is where the
+ * content goes.
+ */
+
+#top {
+	float: left;
+	width: 100%;
+	background-image: url(images/byublue.gif);
+}
+
+#title {
+	float: left;
+	width: 100%;
+	background-image: url(images/byudepartment.gif);
+}
+
+#middle {
+	float: left;
+	width: 100%;
+}
+
+/* ======================================================================
+ * Columns
+ * ======================================================================
+ * Define two columns for the middle -- narrow on the right for navigation
+ * and information boxes, wider on the right for primary content.
+ */
+
+#top-col-1 {
+	float: left;
+	width: 50%;
+	font-size: 7pt;
+	color: #8495a9;
+	letter-spacing: 4px;
+}
+#top-col-2 {
+	float: right;
+	width: 50%;
+	text-align: right;
+	padding-top: 5px;
+	font-size: 12pt;
+	font-weight: bold;
+	letter-spacing: 10px;
+	color: #8495a9;
+}
+
+#top-col-1 a { 	text-decoration: none; color: #8495a9; font-weight: normal;
+		border-bottom: 0px; font-size: 7pt;}
+#top-col-2 a { 	text-decoration: none; color: #8495a9; border-bottom: 0px; }
+
+
+#name {
+	font-size: 18pt;
+	text-indent: 10px;
+	color:#f0f0e2;
+	letter-spacing: 4px;
+	padding-bottom: 2px;
+}
+
+#term {
+	font-size: 14pt;
+	font-weight: bold;
+	color:#11298a;
+	color:#0f2397;
+	color:#0b1956;
+	color:#0d1d64;
+	margin-right: 10px;
+	margin-top: 5px;
+	border-top: 1px solid #999999;
+	border-bottom: 1px solid #999999;
+}
+
+#content {
+	float: left;
+	width: 73%;
+	padding: 10px;
+}
+#content ul { text-align: left; list-style: square; padding-left: 25px; }
+#content li { padding-top: 0px; }
+
+/* Not used?
+
+#content p.alert { color: #990011; font-weight: bold; }
+#content li.alert { color: #990011; font-weight: bold; }
+*/
+
+#sidebar {
+	float: right;
+	width: 22%;
+	border-left: 1px dotted #999999;
+	padding-left: 10px;
+}
+
+/* ======================================================================
+ * Navigation boxes
+ * ======================================================================
+ * Each box has a title and then a main area containing a list of links.
+ * The title is shaded, the links are always blue, turning to red with
+ * an underline when the mouse hovers over them.  Do not allow underlining
+ * any other time, nor any other color changes.
+ */
+#boxtitle {
+	display: block;
+	color: #666666;
+	background-color: #eeeeee;
+	margin-top: 10px;
+	margin-right: 10px;
+	margin-bottom: 5px;
+	padding: 2px;
+	font-size: 7.5pt;
+	font-weight: bold;
+	text-align: center;
+	text-transform: uppercase;
+}
+#box {
+	display: block;
+	padding-left: 3px;
+	padding-right: 3px;
+	margin-right: 10px;
+	font-size: 7pt;
+}
+#box ul {
+	margin-top: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	text-align: left;
+	list-style: square; 
+	padding-left: 15px;
+}
+#box ul.submenu {
+	border-left: 1px solid #666666;
+	list-style: none;
+	padding-left: 5px;
+}
+#box li {
+ 	padding: 2px;
+	padding-left: 0px;
+	font-weight: bold;
+}
+#box li#active {
+	font-size: 7.5pt;
+	color: #cc3333;
+}
+#box li#hidden {
+	display: none;
+}
+
+#box ul a {
+	border-bottom: 0px;
+	font-size: 7.5pt;
+	color: #003366;
+}
+
+#box ul a.active {
+	color: #cc3333;
+}
+
+#box ul a:hover {
+	color: #003366;
+	background-color: #eeeeee;
+	border-top: 1px solid #666666;
+	border-bottom: 1px solid #666666;
+}
+
+#mapname {
+	display: block;
+	border-bottom: 1px solid #666666;
+	font-style: italic;
+}
+#mapvalue {
+	padding-left: 10px;
+}
+#mapvalue a {
+	border-bottom: 0px;
+	font-size: 7.5pt;
+}
+#mapvalue a:hover {
+	color: #cc3333;
+}
+
+#tablerow {
+	display: block;
+	clear: both;
+}
+#tablename {
+	float: left;
+	width: 40%;
+	font-style: italic;
+}
+#tablevalue {
+	float: right;
+	width: 60%;
+
+}
+#tablevalue a {
+	font-size: 7pt;
+}
+#tablesep {
+	clear: both;
+	height: 1px;
+}
+
+
+/* ======================================================================
+ * Two column content
+ * ======================================================================
+ */
+
+div.left {
+	float: left;
+}
+div.right {
+	float: right;
+}
+div.week {
+	clear: both;
+}
+div.topic {
+	clear: both;
+}
+
+/* ======================================================================
+ * Headings
+ * ======================================================================
+ */
+
+h1
+{
+	color: #454545;
+	font-size: 175%;
+	font-weight: bold;
+}
+
+h2
+{
+	color: #707070;
+	font-size: 15pt;
+	font-weight: normal;
+	border: 1px solid #cccccc;
+	border-width: 0px 0px 1px 0px;
+	margin-top: 0px;
+}
+
+h3 {
+	color: #707070;
+	font-size: 12pt;
+	margin-top: -10px;
+	border: 1px solid #cccccc;
+	border-width: 0px 0px 1px 0px;
+	width: 50%
+}
+
+h4
+{
+	background-color: #ddddee;
+	font-size: 10pt;
+	font-weight: bold;
+	text-align: left;
+	margin-bottom: -10px;
+	padding-left: 2px;
+}
+
+h4.red
+{
+	color: #990011;
+	border: 1px solid #990011;
+	border-width: 0px 0px 1px 0px;
+	font-weight: bold;
+}
+
+/* ======================================================================
+ * Forms
+ * ======================================================================
+ */
+
+input.full {
+	width: 100%
+}
+
+
+/* ======================================================================
+ * Tables
+ * ======================================================================
+ */
+
+table
+{
+	border-collapse: collapse;
+	color: black;
+	margin-left: 50px;
+}
+
+td {
+	padding-right: 20px;
+}
+
+/* Schedule */
+
+col.time { width: 75px; }
+col.day { width: 100px; }
+
+tr.top {
+	background-color: #d5c89e;
+	text-align: center;
+	border: 1px solid #555555;
+	border-width: 1px 0px 1px 0px;
+	height: 15px;
+}
+
+tr.tline {
+	border: 1px solid #cccccc;
+	border-width: 1px 0px 0px 0px;
+	height: 15px;
+}
+
+tr.bline {
+	border: 1px solid #cccccc;
+	border-width: 0px 0px 1px 0px;
+	height: 15px;
+}
+
+tr.bbline {
+	border: 1px solid #555555;
+	border-width: 0px 0px 1px 0px;
+}
+
+tr.days {
+	border: 1px solid #555555;
+	border-width: 0px 0px 1px 0px;
+	background-color: #ddddee;
+}
+
+tr.dates {
+	background-color: #ccff99;
+	background-color: #ccccaa;	
+	background-color: #aaccaa;
+	background-color: #ddddee;
+	background-color: #aaee88;
+	background-color: #ffff99;
+}
+
+td.time {
+	text-align: center;
+}
+
+td.class {
+	text-align: center;
+	vertical-align: middle;
+	background-color: violet;
+	border: 1px solid #555555;
+}
+
+td.student {
+	text-align: center;
+	vertical-align: middle;
+	background-color: lightblue;
+	border: 1px solid #555555;
+}
+
+td.meet {
+	text-align: center;
+	vertical-align: middle;
+	background-color: tan;
+	border: 1px solid #555555;
+}
+
+td.private {
+	text-align: center;
+	vertical-align: middle;
+	background-color: lightgreen;
+	border: 1px solid #555555;
+}
+
+/* ======================================================================
+ * Images
+ * ======================================================================
+ */
+
+img {
+	border: 0px;
+	vertical-align: middle;
+}
+
+img.up {
+	vertical-align: -14px;
+}
+
+img.wrap {
+	float: left;
+	margin-right: 10px;
+}
+
+/* ======================================================================
+ * Styles
+ * ======================================================================
+ */
+
+p.example
+{
+  padding: 5px;
+  font-family: Courier;
+  border: 1px dashed #cccccc;
+  background-color: #eeeeff;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+p.subhead
+{
+	font-size: 8pt;
+	font-style: italic;
+	margin-bottom: 0px;
+}
+
+p.thin {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.info
+{
+  color: #707070;
+  font-size: 12px;
+  text-align: left;
+  font-weight: bold;
+}

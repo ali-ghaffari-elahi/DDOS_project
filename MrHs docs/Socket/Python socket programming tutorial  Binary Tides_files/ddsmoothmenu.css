@@ -1,0 +1,33 @@
+.ddsmoothmenu ul {
+	margin: 0px; padding: 0px; list-style-type: none; z-index: 100;
+}
+.ddsmoothmenu ul li {
+	float: left; display: inline; position: relative;
+}
+* html .ddsmoothmenu ul li a {
+	display: inline-block;
+}
+.ddsmoothmenu ul li ul {
+	background: url("/images/bk_submenu.png") no-repeat 0px 9px; left: 0px; width: auto; padding-bottom: 7px; display: none; visibility: hidden; position: absolute;
+}
+.ddsmoothmenu ul li ul li {
+	background: rgb(0, 0, 0); float: none; display: list-item;
+}
+.ddsmoothmenu ul li ul li a {
+	background: rgb(0, 0, 0); margin: 0px; padding: 12px 0px 12px 16px; width: 168px; height: 1%; text-align: left; text-transform: none; line-height: 100%; border-bottom-color: rgb(51, 51, 51); border-bottom-width: 1px; border-bottom-style: solid;
+}
+.ddsmoothmenu ul li ul li a:hover {
+	background: rgb(0, 0, 0); margin: 0px; padding: 12px 0px 12px 16px; width: 168px; height: 1%; text-align: left; text-transform: none; line-height: 100%; border-bottom-color: rgb(51, 51, 51); border-bottom-width: 1px; border-bottom-style: solid;
+}
+.ddsmoothmenu ul li ul li a:hover {
+	color: rgb(31, 162, 225);
+}
+.ddsmoothmenu ul li ul li a.last {
+	border: currentColor;
+}
+.ddsmoothmenu ul li ul li a.last:hover {
+	border: currentColor;
+}
+* html .ddsmoothmenu {
+	height: 1%;
+}
