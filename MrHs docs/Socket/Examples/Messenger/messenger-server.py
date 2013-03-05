@@ -11,7 +11,7 @@
 import socket
 
 test=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
-test.bind(("",32000))
+test.bind(("",32010))
 test.listen(1)
 sender=socket.gethostname()
 (client,addr)=test.accept()

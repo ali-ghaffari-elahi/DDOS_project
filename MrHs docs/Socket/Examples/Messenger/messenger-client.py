@@ -11,7 +11,7 @@
 import socket
 
 test=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
-test.connect(("169.254.211.104",32000))
+test.connect(("169.254.211.104",32010))
 sender=socket.gethostname()
 print(test.recv(2**16))
 while 1:    
