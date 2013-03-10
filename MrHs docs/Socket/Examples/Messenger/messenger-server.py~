@@ -30,7 +30,7 @@ def while1(client,sender,test):
         client_list.append(test.accept())
 
 
-def attack(client_list):
+def send(client):
     massage = str(raw_input("attack--->>> "))
     client.send(massage.encode())
 
@@ -47,7 +47,7 @@ def recv(client,sender):
         print sender,data
         
 t= [Thread(target = send1(test)), Thread(target = recv(test,sender))]
-
+#while 1:
 for i in range(2):
     t[i].start()
 
